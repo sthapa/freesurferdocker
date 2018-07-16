@@ -3,7 +3,7 @@ FROM centos:6
 LABEL maintainer="ssthapa@uchicago.edu"
 
 RUN yum install -y tcsh && yum install -y tar && yum install -y wget && mkdir -p /scratch/subjects  && mkdir -p /scratch/license
-RUN wget -qO- https://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/6.0.1/freesurfer-Linux-centos6_x86_64-stable-pub-v6.0.1.tar.gz | tar zxv --no-same-owner -C /usr/local \
+RUN wget -qO- https://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/5.3.0/freesurfer-Linux-centos6_x86_64-stable-pub-v5.3.0.tar.gz | tar zxv --no-same-owner -C /usr/local \
     --exclude='freesurfer/trctrain' \
     --exclude='freesurfer/subjects/fsaverage_sym' \
     --exclude='freesurfer/subjects/fsaverage3' \
@@ -17,6 +17,7 @@ RUN wget -qO- https://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/6.0.1/frees
     --exclude='freesurfer/average/mult-comp-cor' \
     --exclude='freesurfer/lib/cuda' \
     --exclude='freesurfer/lib/qt'
+RUN ln -s /usr/local/freesurfer/LICENSE /scratch/license/LICENSE
 ENV FREESURFER_HOME /user/local/freesurfer
 ENV MNI_DIR /usr/local/freesurfer/mni
 ENV LOCAL_DIR /usr/local/freesurfer/local
