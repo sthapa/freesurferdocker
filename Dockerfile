@@ -17,7 +17,7 @@ RUN wget -qO- https://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/6.0.1/frees
     --exclude='freesurfer/average/mult-comp-cor' \
     --exclude='freesurfer/lib/cuda' \
     --exclude='freesurfer/lib/qt'
-ENV FREESURFER_HOME /user/local/freesurfer
+ENV FREESURFER_HOME /usr/local/freesurfer
 ENV MNI_DIR /usr/local/freesurfer/mni
 ENV LOCAL_DIR /usr/local/freesurfer/local
 ENV FSFAST_HOME /usr/local/freesurfer/fsfast
